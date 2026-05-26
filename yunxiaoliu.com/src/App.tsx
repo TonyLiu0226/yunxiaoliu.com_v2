@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import { Heart, ThumbsUp, Frown } from 'lucide-react';
+import { Briefcase, ThumbsUp, GraduationCap } from 'lucide-react';
 import './index.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'ambitious' | 'achiever'>('ambitious');
 
-  const loves = ['?????', '?????'];
-  const likes = ['?????', '?????', '?????'];
-  const loathes = ['?????', '?????'];
+  const jobs = ['?????', '?????', '?????', '?????', '?????', '?????', '?????', '?????', '?????'];
+  const projects = ['?????', '?????', '?????', '?????', '?????', '?????'];
+  const education = ['University of British Columbia'];
 
   const handleCardClick = (section: string, index: number) => {
     console.log(`Clicked ${section} item at index ${index}`);
@@ -21,23 +19,17 @@ function App() {
           <div className="header-top-bar">
             <div className="tab-switcher">
               <button
-                className={`tab-btn ${activeTab === 'ambitious' ? 'active' : ''}`}
-                onClick={() => setActiveTab('ambitious')}
+                className={`tab-btn active`}
+                disabled
               >
                 Ambitious
               </button>
               <button
-                className={`tab-btn ${activeTab === 'achiever' ? 'active' : ''}`}
-                onClick={() => setActiveTab('achiever')}
+                className={`tab-btn `}
+                disabled
               >
                 Achiever
               </button>
-            </div>
-            <div className="top-right-icon">
-              <div className="icon-dots">
-                <span></span>
-                <span></span>
-              </div>
             </div>
           </div>
           
@@ -47,17 +39,17 @@ function App() {
           <div className="wave-decorator"></div>
         </div>
 
-        {/* Content Body */}
+        {/* Overview */}
         <div className="content-body">
           {/* Profile & Happiness Card */}
           <div className="profile-stats-card">
             <div className="stats-info">
               <div className="stats-header">
-                <span className="stats-title">Happiness</span>
+                <span className="stats-title">Years of Experience</span>
                 <span className="stats-level">Lv. 3</span>
               </div>
               <div className="progress-bar-bg">
-                <div className="progress-bar-fill" style={{ width: '40%' }}></div>
+                <div className="progress-bar-fill" style={{ width: '70%' }}></div>
               </div>
             </div>
             <div className="avatar-container">
@@ -69,18 +61,18 @@ function App() {
             </div>
           </div>
 
-          {/* Loves Section */}
+          {/* Jobs */}
           <div className="section-container loves-section">
-            <h2 className="section-title">Loves</h2>
+            <h2 className="section-title">Jobs</h2>
             <div className="cards-list">
-              {loves.map((item, idx) => (
+              {jobs.map((item, idx) => (
                 <button 
-                  key={`love-${idx}`} 
+                  key={`job-${idx}`} 
                   className="item-card"
-                  onClick={() => handleCardClick('loves', idx)}
+                  onClick={() => handleCardClick('jobs', idx)}
                 >
                   <div className="icon-wrapper">
-                    <Heart size={20} strokeWidth={2.5} />
+                    <Briefcase size={20} strokeWidth={2.5} />
                   </div>
                   <span className="item-text">{item}</span>
                 </button>
@@ -88,15 +80,15 @@ function App() {
             </div>
           </div>
 
-          {/* Likes Section */}
+          {/* Projects */}
           <div className="section-container likes-section">
-            <h2 className="section-title">Likes</h2>
+            <h2 className="section-title">Projects</h2>
             <div className="cards-list">
-              {likes.map((item, idx) => (
+              {projects.map((item, idx) => (
                 <button 
-                  key={`like-${idx}`} 
+                  key={`project-${idx}`} 
                   className="item-card"
-                  onClick={() => handleCardClick('likes', idx)}
+                  onClick={() => handleCardClick('projects', idx)}
                 >
                   <div className="icon-wrapper">
                     <ThumbsUp size={20} strokeWidth={2.5} />
@@ -107,18 +99,18 @@ function App() {
             </div>
           </div>
 
-          {/* Loathes Section */}
+          {/* Education */}
           <div className="section-container loathes-section">
-            <h2 className="section-title">Loathes</h2>
+            <h2 className="section-title">Education</h2>
             <div className="cards-list">
-              {loathes.map((item, idx) => (
+              {education.map((item, idx) => (
                 <button 
-                  key={`loathe-${idx}`} 
+                  key={`education-${idx}`} 
                   className="item-card"
-                  onClick={() => handleCardClick('loathes', idx)}
+                  onClick={() => handleCardClick('education', idx)}
                 >
                   <div className="icon-wrapper">
-                    <Frown size={20} strokeWidth={2.5} />
+                    <GraduationCap size={20} strokeWidth={2.5} />
                   </div>
                   <span className="item-text">{item}</span>
                 </button>
