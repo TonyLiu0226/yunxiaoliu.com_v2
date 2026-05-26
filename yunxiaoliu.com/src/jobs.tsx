@@ -87,8 +87,7 @@ export const jobs: Job[] = [
         location: "Burnaby, BC",
         description: `More AI and LLM stuffs, basically building and improving upon ChatGPT clones for internal use.
         - Developed internal tooling such as chatbots, coding agents, and RAG-based tools to improve productivity and workflows for 50+ employees.
-        - Built infrastructure using PyTorch and TensorFlow to train latent video compression CNNs on 80,000 multi-frame sequences, and developed Python Scripts
-        to evaluate and visualize model performance on datasets consisting of 600-frame sequences.
+        - Built infrastructure using PyTorch and TensorFlow to train latent video compression CNNs on 80,000 multi-frame sequences, and developed Python Scripts to evaluate and visualize model performance on datasets consisting of 600-frame sequences.
         - Built a dashboard to track employee LLM usage, enabling data-driven optimizations that reduced API costs by 50%.
         `
     },
@@ -98,13 +97,11 @@ export const jobs: Job[] = [
         startDate: "May 2025",
         endDate: "May 2026",
         location: "Vancouver, BC",
-        description: `I was responsible for overseeing the redesign and redevelopment of UBC Botanical Garden's website, used by more than 100,000 users annually,  
-        managing timelines, scope, requirements, and deliverables among various stakeholders and co-ordinating with a third party agency to execute site development.
+        description: `I was responsible for overseeing the redesign and redevelopment of UBC Botanical Garden's website, used by more than 100,000 users annually. I managed timelines, scope, requirements, and deliverables among various stakeholders and co-ordinated with a third party agency to execute site development.
 
         - Conducted user interviews with 10+ stakeholders to create prioritized user stories that informed sitemap and UI decisions.
         - Led usability testing with 15+ staff to validate core features, identify usability gaps, and drive post-launch improvements.
-        - Defined success metrics using Google Analytics, establishing KPIs (bounce rate, session duration, page interactions) to measure
-post-launch performance and guide content development.    
+        - Defined success metrics using Google Analytics, establishing KPIs (bounce rate, session duration, page interactions) to measure post-launch performance and guide content development.    
         `
     },
     {
