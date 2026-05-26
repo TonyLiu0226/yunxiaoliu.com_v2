@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe} from 'lucide-react';
+import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin} from 'lucide-react';
 import './index.css';
 
 import { jobs } from './jobs';
@@ -175,11 +175,24 @@ function App() {
                 <h3 className="detail-subtitle">{(activeItem as Job).role}</h3>
                 <div className="detail-meta">
                   <span className="detail-meta-item">
-                    <Briefcase size={16} /> 
-                    {(activeItem as Job).startDate} - {(activeItem as Job).endDate || 'Present'}
+                    <div className='detail-meta-item-content'>
+                      <Play size={16} /> 
+                      {(activeItem as Job).startDate}
+                    </div>
                   </span>
+                  {(activeItem as Job).endDate && (
+                    <span className="detail-meta-item">
+                      <div className='detail-meta-item-content'>
+                      <Square size={16} /> 
+                      {(activeItem as Job).endDate}
+                      </div>
+                  </span>
+                  )}
                   <span className="detail-meta-item">
-                     • {(activeItem as Job).location}
+                    <div className='detail-meta-item-content'>
+                      <MapPin size={16} />
+                     {(activeItem as Job).location}
+                    </div>
                   </span>
                 </div>
                 <div className="detail-description">
