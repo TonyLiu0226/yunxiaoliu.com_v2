@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin} from 'lucide-react';
+import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin } from 'lucide-react';
 import './index.css';
 
 import { jobs } from './jobs';
@@ -88,7 +88,7 @@ function App() {
               </div>
               <div className="avatar-container">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                  src="yl.png" 
                   alt="Profile Avatar" 
                   className="avatar-img"
                 />
@@ -159,6 +159,24 @@ function App() {
                     <span className="item-text">{item}</span>
                   </button>
                 ))}
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div className="section-container social-section">
+              <div className="social-links">
+                <a href="https://www.linkedin.com/in/yunxiaotonyliu/" className="social-icon" aria-label="LinkedIn">
+                  <i className="fa-brands fa-linkedin-in" style={{ fontSize: '24px' }}></i>
+                </a>
+                <a href="https://github.com/TonyLiu0226" className="social-icon" aria-label="GitHub">
+                  <i className="fa-brands fa-github" style={{ fontSize: '24px' }}></i>
+                </a>
+                <a href="https://www.instagram.com/tony_26l/" className="social-icon" aria-label="Instagram">
+                  <i className="fa-brands fa-instagram" style={{ fontSize: '24px' }}></i>
+                </a>
+                <a href="mailto:tl0226yn@gmail.com" className="social-icon" aria-label="Email">
+                  <i className="fa-solid fa-envelope" style={{ fontSize: '24px' }}></i>
+                </a>
               </div>
             </div>
             
