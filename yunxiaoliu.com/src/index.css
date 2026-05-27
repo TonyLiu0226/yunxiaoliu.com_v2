@@ -208,6 +208,18 @@ body {
   box-shadow: var(--card-shadow);
 }
 
+@media screen and (max-width: 450px) {
+  .profile-stats-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stats-info {
+    padding-top: 10px;
+  }
+}
+
 .stats-info {
   flex: 1;
   padding-right: 20px;
@@ -253,6 +265,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
   flex-shrink: 0;
+  margin-top: 10px;
 }
 
 .avatar-img {
