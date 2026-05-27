@@ -66,9 +66,9 @@ function App() {
               </div>
             )}
           </div>
-          
+
           <h1 className="name-title">Tony Liu</h1>
-          
+
           {/* Wave effect at the bottom of header */}
           <div className="wave-decorator"></div>
         </div>
@@ -87,9 +87,9 @@ function App() {
                 </div>
               </div>
               <div className="avatar-container">
-                <img 
-                  src="yl.png" 
-                  alt="Profile Avatar" 
+                <img
+                  src="ylm.png"
+                  alt="Profile Avatar"
                   className="avatar-img"
                 />
               </div>
@@ -100,8 +100,8 @@ function App() {
               <h2 className="section-title">Jobs</h2>
               <div className="cards-list">
                 {jobs.map((item, idx) => (
-                  <button 
-                    key={`job-${idx}`} 
+                  <button
+                    key={`job-${idx}`}
                     className="item-card job-card"
                     onClick={() => handleCardClick('jobs', idx)}
                   >
@@ -129,8 +129,8 @@ function App() {
               <h2 className="section-title">Projects</h2>
               <div className="cards-list">
                 {projects.map((item, idx) => (
-                  <button 
-                    key={`project-${idx}`} 
+                  <button
+                    key={`project-${idx}`}
                     className="item-card project-card"
                     onClick={() => handleCardClick('projects', idx)}
                   >
@@ -148,8 +148,8 @@ function App() {
               <h2 className="section-title">Education</h2>
               <div className="cards-list">
                 {education.map((item, idx) => (
-                  <button 
-                    key={`education-${idx}`} 
+                  <button
+                    key={`education-${idx}`}
                     className="item-card"
                     onClick={() => handleCardClick('education', idx)}
                   >
@@ -179,7 +179,7 @@ function App() {
                 </a>
               </div>
             </div>
-            
+
           </div>
         ) : (
           <div className="content-body detail-view">
@@ -194,22 +194,22 @@ function App() {
                 <div className="detail-meta">
                   <span className="detail-meta-item">
                     <div className='detail-meta-item-content'>
-                      <Play size={16} /> 
+                      <Play size={16} />
                       {(activeItem as Job).startDate}
                     </div>
                   </span>
                   {(activeItem as Job).endDate && (
                     <span className="detail-meta-item">
                       <div className='detail-meta-item-content'>
-                      <Square size={16} /> 
-                      {(activeItem as Job).endDate}
+                        <Square size={16} />
+                        {(activeItem as Job).endDate}
                       </div>
-                  </span>
+                    </span>
                   )}
                   <span className="detail-meta-item">
                     <div className='detail-meta-item-content'>
                       <MapPin size={16} />
-                     {(activeItem as Job).location}
+                      {(activeItem as Job).location}
                     </div>
                   </span>
                 </div>
@@ -229,15 +229,15 @@ function App() {
                     <p key={i}>{line}</p>
                   ))}
                 </div>
-                { (activeItem as Project).GitHubURL && (
-                   <a 
-                     href={(activeItem as Project).GitHubURL} 
-                     target="_blank" 
-                     rel="noreferrer" 
-                     className="pill-btn"
-                   >
-                     GitHub Link <Globe size={20} />
-                   </a>
+                {(activeItem as Project).GitHubURL && (
+                  <a
+                    href={(activeItem as Project).GitHubURL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="pill-btn"
+                  >
+                    GitHub Link <Globe size={20} />
+                  </a>
                 )}
               </div>
             )}
