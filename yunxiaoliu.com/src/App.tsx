@@ -47,42 +47,35 @@ function App() {
     }
   };
 
-  //init particles for card header
-  const options = {
-  fullScreen: {
-    enable: false,
-    zIndex: 0
-  },
-  background: {
-    color: "transparent",
-  },
-  particles: {
-    number: {
-      value: 90,
+  // Options for the header (white particles)
+  const headerOptions = {
+    fullScreen: { enable: false, zIndex: 0 },
+    background: { color: "transparent" },
+    particles: {
+      color: { value: "#ffffff" },
+      number: { value: 90 },
+      size: { value: { min: 8, max: 12 } },
+      opacity: { value: 0.4 },
+      shape: { type: "circle" },
+      links: { enable: false },
+      move: { enable: true, speed: 2 },
     },
-    size: {
-      value: {
-        min: 8,
-        max: 12
-      },
-    },
-    opacity: {
-      value: 0.4,
-    },
-    shape: {
-      type: "circle"
-    },
-    links: {
-      enable: false
-    },
-    move: {
-      enable: true,
-      speed: 2,
-    },
-  },
-};
+  };
 
-//init particles for card body
+  // Options for the body (dark particles so they show up on off-white background)
+  const bodyOptions = {
+    fullScreen: { enable: false, zIndex: 0 },
+    background: { color: "green" },
+    particles: {
+      color: { value: "#423535" },
+      number: { value: 90 },
+      size: { value: { min: 8, max: 12 } },
+      opacity: { value: { min: 0.2, max: 0.4 } },
+      shape: { type: "circle" },
+      links: { enable: false },
+      move: { enable: true, speed: 2 },
+    },
+  };
 
   useEffect(() => {
     (async () => {
@@ -90,7 +83,18 @@ function App() {
 
       await tsParticles.load({
         id: "tsparticles",
-        options: options as any,
+        options: headerOptions as any,
+      });
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      await loadSlim(tsParticles);
+
+      await tsParticles.load({
+        id: "tsparticles2",
+        options: bodyOptions as any,
       });
     })();
   }, []);
@@ -126,13 +130,16 @@ function App() {
           <div className="wave-decorator"></div>
         </div>
 
-        {activeView === 'overview' ? (
+        <div className="content-section-wrapper">
+          <div id="tsparticles2" className="particles-layer body-particles"></div>
+
+          {activeView === 'overview' ? (
           <div className="content-body">
             {/* Profile & Happiness Card */}
             <div className="profile-stats-card">
               <div className="stats-info">
                 <div className="stats-header">
-                  <span className="stats-title">Years of Experience</span>
+                  <span className="stats-title">YOE</span>
                   <span className="stats-level">Lv. 3</span>
                 </div>
                 <div className="progress-bar-bg">
@@ -296,6 +303,7 @@ function App() {
             )}
           </div>
         )}
+        </div>
       </div>
     </div>
   );
