@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin } from 'lucide-react';
+import { tsParticles } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
+
+
 import './index.css';
 
 import { jobs } from './jobs';
@@ -43,11 +47,60 @@ function App() {
     }
   };
 
+  //init particles for card header
+  const options = {
+  fullScreen: {
+    enable: false,
+    zIndex: 0
+  },
+  background: {
+    color: "transparent",
+  },
+  particles: {
+    number: {
+      value: 90,
+    },
+    size: {
+      value: {
+        min: 8,
+        max: 12
+      },
+    },
+    opacity: {
+      value: 0.4,
+    },
+    shape: {
+      type: "circle"
+    },
+    links: {
+      enable: false
+    },
+    move: {
+      enable: true,
+      speed: 2,
+    },
+  },
+};
+
+//init particles for card body
+
+  useEffect(() => {
+    (async () => {
+      await loadSlim(tsParticles);
+
+      await tsParticles.load({
+        id: "tsparticles",
+        options: options as any,
+      });
+    })();
+  }, []);
+
   return (
     <div className="app-container">
       <div className="mobile-card">
         {/* Header Section */}
         <div className="header-section">
+          <div id="tsparticles" className="tsparticles-bg"></div>
           <div className="header-top-bar">
             {activeView === 'overview' && (
               <div className="tab-switcher">
