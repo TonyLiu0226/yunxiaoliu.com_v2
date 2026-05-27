@@ -88,7 +88,7 @@ function App() {
               </div>
               <div className="avatar-container">
                 <img
-                  src="ylm.png"
+                  src="/yllm.png"
                   alt="Profile Avatar"
                   className="avatar-img"
                 />
