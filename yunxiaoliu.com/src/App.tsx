@@ -322,32 +322,34 @@ function App() {
                     <>
                     <h3 className="gallery-title">Featured Images</h3>
                     <div className="gallery-carousel">
-                      <button 
-                        className="carousel-btn"
-                        onClick={() => setGalleryIndex(prev => Math.max(0, prev - 1))}
-                        disabled={galleryIndex === 0}
+                      <Card
+                        className="gallery-flowbite-card"
+                        imgAlt={(activeItem as Project).gallery![galleryIndex].Title}
+                        imgSrc={(activeItem as Project).gallery![galleryIndex].ImagePath}
                       >
-                        <ChevronLeft size={24} />
-                      </button>
-                        <Card
-                          className="gallery-flowbite-card"
-                          imgAlt={(activeItem as Project).gallery![galleryIndex].Title}
-                          imgSrc={(activeItem as Project).gallery![galleryIndex].ImagePath}
+                        <h5 className="gallery-flowbite-title">
+                          {(activeItem as Project).gallery![galleryIndex].Title}
+                        </h5>
+                        <p className="gallery-flowbite-desc">
+                          {(activeItem as Project).gallery![galleryIndex].Description}
+                        </p>
+                      </Card>
+                      <div className="gallery-controls">
+                        <button 
+                          className="carousel-btn"
+                          onClick={() => setGalleryIndex(prev => Math.max(0, prev - 1))}
+                          disabled={galleryIndex === 0}
                         >
-                          <h5 className="gallery-flowbite-title">
-                            {(activeItem as Project).gallery![galleryIndex].Title}
-                          </h5>
-                          <p className="gallery-flowbite-desc">
-                            {(activeItem as Project).gallery![galleryIndex].Description}
-                          </p>
-                        </Card>
-                      <button 
-                        className="carousel-btn"
-                        onClick={() => setGalleryIndex(prev => Math.min((activeItem as Project).gallery!.length - 1, prev + 1))}
-                        disabled={galleryIndex === (activeItem as Project).gallery!.length - 1}
-                      >
-                        <ChevronRight size={24} />
-                      </button>
+                          <ChevronLeft size={24} />
+                        </button>
+                        <button 
+                          className="carousel-btn"
+                          onClick={() => setGalleryIndex(prev => Math.min((activeItem as Project).gallery!.length - 1, prev + 1))}
+                          disabled={galleryIndex === (activeItem as Project).gallery!.length - 1}
+                        >
+                          <ChevronRight size={24} />
+                        </button>
+                      </div>
                     </div>
                     </>
                   )}
@@ -390,32 +392,34 @@ function App() {
                   <h3 className="gallery-title">Featured Courses</h3>
                   {(activeItem as Education).courses.length > 0 && (
                     <div className="gallery-carousel">
-                      <button 
-                        className="carousel-btn"
-                        onClick={() => setGalleryIndex(prev => Math.max(0, prev - 1))}
-                        disabled={galleryIndex === 0}
+                      <Card
+                        className="gallery-flowbite-card"
+                        imgAlt={(activeItem as Education).courses[galleryIndex].Title}
+                        imgSrc={(activeItem as Education).courses[galleryIndex].ImagePath}
                       >
-                        <ChevronLeft size={24} />
-                      </button>
-                        <Card
-                          className="gallery-flowbite-card"
-                          imgAlt={(activeItem as Education).courses[galleryIndex].Title}
-                          imgSrc={(activeItem as Education).courses[galleryIndex].ImagePath}
+                        <h5 className="gallery-flowbite-title">
+                          {(activeItem as Education).courses[galleryIndex].Title}
+                        </h5>
+                        <p className="gallery-flowbite-desc">
+                          {(activeItem as Education).courses[galleryIndex].Description}
+                        </p>
+                      </Card>
+                      <div className="gallery-controls">
+                        <button 
+                          className="carousel-btn"
+                          onClick={() => setGalleryIndex(prev => Math.max(0, prev - 1))}
+                          disabled={galleryIndex === 0}
                         >
-                          <h5 className="gallery-flowbite-title">
-                            {(activeItem as Education).courses[galleryIndex].Title}
-                          </h5>
-                          <p className="gallery-flowbite-desc">
-                            {(activeItem as Education).courses[galleryIndex].Description}
-                          </p>
-                        </Card>
-                      <button 
-                        className="carousel-btn"
-                        onClick={() => setGalleryIndex(prev => Math.min((activeItem as Education).courses.length - 1, prev + 1))}
-                        disabled={galleryIndex === (activeItem as Education).courses.length - 1}
-                      >
-                        <ChevronRight size={24} />
-                      </button>
+                          <ChevronLeft size={24} />
+                        </button>
+                        <button 
+                          className="carousel-btn"
+                          onClick={() => setGalleryIndex(prev => Math.min((activeItem as Education).courses.length - 1, prev + 1))}
+                          disabled={galleryIndex === (activeItem as Education).courses.length - 1}
+                        >
+                          <ChevronRight size={24} />
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>

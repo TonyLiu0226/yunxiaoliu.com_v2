@@ -623,9 +623,16 @@ body {
 
 .gallery-carousel {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
+  width: 100%;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
   width: 100%;
 }
 
@@ -670,7 +677,8 @@ body {
 /* --- Flowbite Card Custom Styles --- */
 .gallery-flowbite-card {
   z-index: 10 !important;
-  max-width: 400px !important;
+  width: 100% !important;
+  max-width: 100% !important;
   margin: 0 auto;
   transition: all 0.3s ease-in-out;
   border: 2px solid black !important;
@@ -721,4 +729,19 @@ body {
   font-weight: 600;
   color: #444;
   line-height: 1.4;
+}
+
+/* --- Mobile Gallery Adjustments --- */
+@media (max-width: 768px) {
+  .gallery-flowbite-card img {
+    object-fit: contain;
+  }
+  
+  .gallery-flowbite-title {
+    font-size: 18px;
+  }
+
+  .gallery-flowbite-desc {
+    font-size: 13px;
+  }
 }
