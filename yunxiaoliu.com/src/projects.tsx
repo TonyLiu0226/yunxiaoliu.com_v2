@@ -4,7 +4,55 @@ export const projects: Project[] = [
     {
         name: "Flowleaflets",
         description: "Developed in collaboration with a nonprofit, Flowleaflets is a SaaS that allows medical students to transcribe and digitize handwritten notes from medical logbooks.",
-        GitHubURL: "https://github.com/ubclaunchpad/clinical-logging"
+        GitHubURL: "https://github.com/ubclaunchpad/clinical-logging",
+        gallery: [
+            
+            {
+                Title: "Signup page",
+                ImagePath: "Flowleaflets_signup.png",
+                Description: ""
+            },
+            {
+                Title: "Login page",
+                ImagePath: "Flowleaflets_login.png",
+                Description: ""
+            },
+            {
+                Title: "Home",
+                ImagePath: "Flowleaflets_home.png",
+                Description: "Dashboard page"
+            },
+            {
+                Title: "Logbooks Page",
+                ImagePath: "Flowleaflets_single.png",
+                Description: "Supports up to 100 logbooks per user, 5 types to choose from!"
+            },
+            {
+                Title: "Single Logbook",
+                ImagePath: "Flowleaflets_logbook.png",
+                Description: "Details for a single logbook"
+            },
+            {
+                Title: "Log entries",
+                ImagePath: "Flowleaflets_logs.png",
+                Description: ""
+            },
+            {
+                Title: "Recent activity",
+                ImagePath: "Flowleaflets_recents.png",
+                Description: ""
+            },
+            {
+                Title: "Form",
+                ImagePath: "Flowleaflets_manualentry_1.png",
+                Description: "Users can manually input log entries if they choose not to use the automatic transcription feature. This page is for recent medical examinations."
+            },
+            {
+                Title: "Form",
+                ImagePath: "Flowleaflets_manualentry_2.png",
+                Description: "Users can manually input log entries if they choose not to use the automatic transcription feature. This page is for surgery results."
+            }
+        ]
     },
     {
         name: "Class of 19",
