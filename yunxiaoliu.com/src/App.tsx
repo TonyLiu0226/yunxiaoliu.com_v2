@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin } from 'lucide-react';
+import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Card } from 'flowbite-react';
 import { tsParticles } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
@@ -8,14 +9,14 @@ import './index.css';
 
 import { jobs } from './jobs';
 import { projects } from './projects';
-import type { Job, Project } from './types';
+import { educationData } from './education';
+import type { Job, Project, Education } from './types';
 
 function App() {
   const [activeView, setActiveView] = useState<'overview' | 'detail'>('overview');
-  const [activeType, setActiveType] = useState<'job' | 'project' | null>(null);
-  const [activeItem, setActiveItem] = useState<Job | Project | null>(null);
-
-  const education = ['University of British Columbia'];
+  const [activeType, setActiveType] = useState<'job' | 'project' | 'education' | null>(null);
+  const [activeItem, setActiveItem] = useState<Job | Project | Education | null>(null);
+  const [courseIndex, setCourseIndex] = useState(0);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,6 +45,11 @@ function App() {
       setActiveItem(projects[index]);
       setActiveType('project');
       setActiveView('detail');
+    } else if (section === 'education') {
+      setActiveItem(educationData[index]);
+      setActiveType('education');
+      setActiveView('detail');
+      setCourseIndex(0);
     }
   };
 
@@ -207,16 +213,26 @@ function App() {
             <div className="section-container loathes-section">
               <h2 className="section-title">Education</h2>
               <div className="cards-list">
-                {education.map((item, idx) => (
+                {educationData.map((item, idx) => (
                   <button
                     key={`education-${idx}`}
-                    className="item-card"
+                    className="item-card job-card"
                     onClick={() => handleCardClick('education', idx)}
                   >
                     <div className="icon-wrapper">
                       <GraduationCap size={20} strokeWidth={2.5} />
                     </div>
-                    <span className="item-text">{item}</span>
+                    <div className="job-content">
+                      <div className="job-left">
+                        <span className="job-company">{item.school}</span>
+                        <span className="job-role">{item.degree}</span>
+                      </div>
+                      <div className="job-right">
+                        <span className="job-dates">
+                          {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
+                        </span>
+                      </div>
+                    </div>
                   </button>
                 ))}
               </div>
@@ -299,6 +315,73 @@ function App() {
                     GitHub Link <Globe size={20} />
                   </a>
                 )}
+              </div>
+            )}
+
+            {activeType === 'education' && activeItem && (
+              <div className="detail-content">
+                <h2 className="detail-title">{(activeItem as Education).school}</h2>
+                <h3 className="detail-subtitle">{(activeItem as Education).degree}</h3>
+                <div className="detail-meta">
+                  <span className="detail-meta-item">
+                    <div className='detail-meta-item-content'>
+                      <Play size={16} />
+                      {(activeItem as Education).startDate}
+                    </div>
+                  </span>
+                  {(activeItem as Education).endDate && (
+                    <span className="detail-meta-item">
+                      <div className='detail-meta-item-content'>
+                        <Square size={16} />
+                        {(activeItem as Education).endDate}
+                      </div>
+                    </span>
+                  )}
+                  <span className="detail-meta-item">
+                    <div className='detail-meta-item-content'>
+                      <MapPin size={16} />
+                      {(activeItem as Education).location}
+                    </div>
+                  </span>
+                </div>
+                <div className="detail-description">
+                  <p><strong>{(activeItem as Education).note} </strong> </p>
+                  <p>{(activeItem as Education).description}</p>
+                </div>
+                
+                <div className="featured-courses">
+                  <h3 className="courses-title">Featured Courses</h3>
+                  {(activeItem as Education).courses.length > 0 && (
+                    <div className="courses-carousel">
+                      <button 
+                        className="carousel-btn"
+                        onClick={() => setCourseIndex(prev => Math.max(0, prev - 1))}
+                        disabled={courseIndex === 0}
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                        <Card
+                          className="course-flowbite-card"
+                          imgAlt={(activeItem as Education).courses[courseIndex].Title}
+                          imgSrc={(activeItem as Education).courses[courseIndex].ImagePath}
+                        >
+                          <h5 className="course-flowbite-title">
+                            {(activeItem as Education).courses[courseIndex].Title}
+                          </h5>
+                          <p className="course-flowbite-desc">
+                            {(activeItem as Education).courses[courseIndex].Description}
+                          </p>
+                        </Card>
+                      <button 
+                        className="carousel-btn"
+                        onClick={() => setCourseIndex(prev => Math.min((activeItem as Education).courses.length - 1, prev + 1))}
+                        disabled={courseIndex === (activeItem as Education).courses.length - 1}
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>

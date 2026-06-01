@@ -16,6 +16,9 @@
   --loathes-color: #5B8FA8;
   --loathes-bg: #D9EDF7;
 
+  --highlights-color: #FA4A11;
+  --highlights-active: #CF3402;
+
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -151,11 +154,11 @@ body {
 }
 
 .icon-dots span:first-child {
-  background-color: #F8B150;
+  background-color: var(--likes-color);
 }
 
 .icon-dots span:last-child {
-  background-color: #EF6F33;
+  background-color: var(--loves-color);
 }
 
 .name-title {
@@ -199,7 +202,7 @@ body {
 
 /* --- Profile Stats Card --- */
 .profile-stats-card {
-  background-color: #EFEDDF;
+  background-color: var(--app-bg);
   border-radius: 16px;
   padding: 16px;
   display: flex;
@@ -245,7 +248,7 @@ body {
 .progress-bar-bg {
   width: 100%;
   height: 12px;
-  background-color: #DFDCCF;
+  background-color: var(--app-bg);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -354,7 +357,7 @@ body {
 
 .likes-section .icon-wrapper {
   color: var(--likes-color);
-  background-color: #F8F4E6;
+  background-color: var(--app-bg);
   /* Slightly off-white to contrast with white card */
 }
 
@@ -505,7 +508,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #FA4A11;
+  background: var(--highlights-color);
   border: none;
   cursor: pointer;
   padding: 0;
@@ -525,7 +528,7 @@ body {
   width: 40px;
   height: 40px;
   background-color: white;
-  color: #FA4A11;
+  color: var(--highlights-color);
   border-radius: 50%;
   font-weight: 800;
   font-size: 20px;
@@ -541,14 +544,14 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #FA4A11;
+  background-color: var(--highlights-color);
   color: white;
   font-size: 20px;
   font-weight: 800;
   padding: 12px 32px;
   border-radius: 40px;
   text-decoration: none;
-  box-shadow: 0 6px 0 #CF3402;
+  box-shadow: 0 6px 0 var(--highlights-active);
   border: none;
   cursor: pointer;
   margin-top: 24px;
@@ -560,7 +563,7 @@ body {
 
 .pill-btn:active {
   transform: translateY(6px);
-  box-shadow: 0 0 0 #CF3402;
+  box-shadow: 0 0 0 var(--highlights-active);
 }
 
 /* --- Social Section --- */
@@ -594,7 +597,7 @@ body {
 .social-icon:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  color: #FA4A11;
+  color: var(--highlights-color);
 }
 
 .social-icon:active {
@@ -604,4 +607,158 @@ body {
 .social-icon i {
   width: auto;
   text-align: center;
+}
+
+/* --- Featured Courses --- */
+.featured-courses {
+  margin-top: 24px;
+}
+
+.courses-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.courses-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.carousel-btn {
+  background: white;
+  border: 1px solid var(--highlights-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  color: var(--highlights-color);
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: var(--highlights-active);
+  color: white;
+  transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-card-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-card-container .course-card {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* --- Flowbite Card Custom Styles --- */
+.course-flowbite-card {
+  z-index: 10 !important;
+  max-width: 400px !important;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid black !important;
+  background-color: var(--app-bg) !important;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0px black; /* added cartoon pop effect */
+  cursor: pointer;
+}
+
+.course-flowbite-card:hover {
+  transform: translateY(-4px) scale(0.95);
+  background-color: var(--highlights-active) !important; /* red-400 */
+}
+
+.course-flowbite-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 2px solid black;
+}
+
+/* Flowbite inner content div */
+.course-flowbite-card > div {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.course-flowbite-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.course-flowbite-card:hover .course-flowbite-title,
+.course-flowbite-card:hover .course-flowbite-desc {
+  color: white; /* Make text readable on red background */
+}
+
+.course-flowbite-desc {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  line-height: 1.4;
+}
+
+.course-card {
+  background-color: var(--app-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--app-bg);
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.course-image-wrapper {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  background-color: var(--app-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-name {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-main);
 }

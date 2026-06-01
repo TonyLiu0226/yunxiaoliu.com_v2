@@ -13,9 +13,19 @@ export type Project = {
     GitHubURL: string;
 }
 
+export type Course = {
+    Title: string;
+    ImagePath: string;
+    Description: string;
+}
+
 export type Education = {
     school: string;
     degree: string;
     startDate: string;
     endDate: string;
+    location: string;
+    note: string;
+    description: string;
+    courses: Course[];
 }
