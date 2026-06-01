@@ -11,9 +11,10 @@ export type Project = {
     name: string;
     description: string;
     GitHubURL: string;
+    gallery?: GalleryItem[];
 }
 
-export type Course = {
+export type GalleryItem = {
     Title: string;
     ImagePath: string;
     Description: string;
@@ -27,5 +28,5 @@ export type Education = {
     location: string;
     note: string;
     description: string;
-    courses: Course[];
+    courses: GalleryItem[];
 }

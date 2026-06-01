@@ -609,19 +609,19 @@ body {
   text-align: center;
 }
 
-/* --- Featured Courses --- */
-.featured-courses {
+/* --- Featured Gallery --- */
+.featured-gallery {
   margin-top: 24px;
 }
 
-.courses-title {
+.gallery-title {
   font-size: 20px;
   font-weight: 800;
   color: var(--text-main);
   margin-bottom: 12px;
 }
 
-.courses-carousel {
+.gallery-carousel {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -662,13 +662,13 @@ body {
   justify-content: center;
 }
 
-.carousel-card-container .course-card {
+.carousel-card-container .gallery-card {
   width: 100%;
   max-width: 320px;
 }
 
 /* --- Flowbite Card Custom Styles --- */
-.course-flowbite-card {
+.gallery-flowbite-card {
   z-index: 10 !important;
   max-width: 400px !important;
   margin: 0 auto;
@@ -683,12 +683,12 @@ body {
   cursor: pointer;
 }
 
-.course-flowbite-card:hover {
+.gallery-flowbite-card:hover {
   transform: translateY(-4px) scale(0.95);
   background-color: var(--highlights-active) !important; /* red-400 */
 }
 
-.course-flowbite-card img {
+.gallery-flowbite-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -696,14 +696,14 @@ body {
 }
 
 /* Flowbite inner content div */
-.course-flowbite-card > div {
+.gallery-flowbite-card > div {
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.course-flowbite-title {
+.gallery-flowbite-title {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -711,54 +711,14 @@ body {
   line-height: 1.2;
 }
 
-.course-flowbite-card:hover .course-flowbite-title,
-.course-flowbite-card:hover .course-flowbite-desc {
+.gallery-flowbite-card:hover .gallery-flowbite-title,
+.gallery-flowbite-card:hover .gallery-flowbite-desc {
   color: white; /* Make text readable on red background */
 }
 
-.course-flowbite-desc {
+.gallery-flowbite-desc {
   font-size: 14px;
   font-weight: 600;
   color: #444;
   line-height: 1.4;
-}
-
-.course-card {
-  background-color: var(--app-bg);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid var(--app-bg);
-}
-
-.course-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.course-image-wrapper {
-  width: 100%;
-  height: 140px;
-  overflow: hidden;
-  background-color: var(--app-bg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.course-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.course-name {
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
-  color: var(--text-main);
 }
