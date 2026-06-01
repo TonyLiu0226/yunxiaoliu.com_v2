@@ -22,6 +22,11 @@
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -209,6 +214,7 @@ body {
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--card-shadow);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 450px) {
@@ -269,6 +275,7 @@ body {
   background-color: white;
   flex-shrink: 0;
   margin-top: 10px;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .avatar-img {
@@ -288,12 +295,14 @@ body {
   font-size: 18px;
   font-weight: 800;
   margin-left: 4px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .cards-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .item-card {
@@ -447,6 +456,7 @@ body {
   box-shadow: var(--card-shadow);
   text-align: left;
   min-height: 400px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .detail-content {
@@ -578,6 +588,7 @@ body {
   gap: 20px;
   align-items: center;
   justify-content: center;
+  animation: fadeIn 2.2s ease-in;
 }
 
 .social-icon {
