@@ -126,7 +126,7 @@ function App() {
 
   return (
     <>  
-    <audio ref={audioRef} controls hidden>
+    <audio ref={audioRef} controls hidden loop>
         <source src="/TS.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
