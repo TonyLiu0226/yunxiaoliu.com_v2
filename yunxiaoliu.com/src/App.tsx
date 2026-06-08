@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Briefcase, ThumbsUp, GraduationCap, Undo2, Globe, Play, Square, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card } from 'flowbite-react';
 import { tsParticles } from "@tsparticles/engine";
@@ -106,12 +106,35 @@ function App() {
     })();
   }, []);
 
+  //audio
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const playAudio = () => {
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+    };
+    playAudio();
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, []);
+
   return (
-    <div className="app-container">
-      <div className="mobile-card">
-        {/* Header Section */}
-        <div className="header-section">
-          <div id="tsparticles" className="tsparticles-bg"></div>
+    <>  
+    <audio ref={audioRef} controls hidden>
+        <source src="/TS.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <div className="app-container">
+        <div className="mobile-card">
+          {/* Header Section */}
+          <div className="header-section">
+            <div id="tsparticles" className="tsparticles-bg"></div>
           <div className="header-top-bar">
             {activeView === 'overview' && (
               <div className="tab-switcher">
@@ -430,6 +453,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
