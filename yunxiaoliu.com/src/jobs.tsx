@@ -108,10 +108,10 @@ export const jobs: Job[] = [
         company: "Nutanix",
         role: "Software Engineer",
         startDate: "July 2026",
-        endDate: "",
+        endDate: "Present",
         location: "Vancouver, BC",
         description: `
-        Coming soon... Stay tuned!!!
+        MTS-1 Working on the Flow Networking team... stay tuned for more updates!
         `
     }
     
