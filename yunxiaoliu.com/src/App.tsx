@@ -17,6 +17,7 @@ function App() {
   const [activeType, setActiveType] = useState<'job' | 'project' | 'education' | null>(null);
   const [activeItem, setActiveItem] = useState<Job | Project | Education | null>(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -25,10 +26,15 @@ function App() {
         setActiveType(null);
         setActiveItem(null);
       }
+      if (e.key.toLowerCase() === 'a' && hoveredCard) {
+        const [section, idxStr] = hoveredCard.split('-');
+        const idx = parseInt(idxStr, 10);
+        handleCardClick(section === 'job' ? 'jobs' : section === 'project' ? 'projects' : 'education', idx);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [hoveredCard]);
 
   const goBack = () => {
     setActiveView('overview');
@@ -190,26 +196,38 @@ function App() {
               <h2 className="section-title">Jobs</h2>
               <div className="cards-list">
                 {jobs.map((item, idx) => (
-                  <button
+                  <div
                     key={`job-${idx}`}
-                    className="item-card job-card"
-                    onClick={() => handleCardClick('jobs', idx)}
+                    className="card-hover-wrapper"
+                    onMouseEnter={() => setHoveredCard(`job-${idx}`)}
+                    onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <div className="icon-wrapper">
-                      <Briefcase size={20} strokeWidth={2.5} />
-                    </div>
-                    <div className="job-content">
-                      <div className="job-left">
-                        <span className="job-company">{item.company}</span>
-                        <span className="job-role">{item.role}</span>
+                    {hoveredCard === `job-${idx}` && (
+                      <div className="card-tooltip">
+                        <span className="card-tooltip-a">Ⓐ</span> More
+                        <div className="card-tooltip-arrow" />
                       </div>
-                      <div className="job-right">
-                        <span className="job-dates">
-                          {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
-                        </span>
+                    )}
+                    <button
+                      className="item-card job-card"
+                      onClick={() => handleCardClick('jobs', idx)}
+                    >
+                      <div className="icon-wrapper">
+                        <Briefcase size={20} strokeWidth={2.5} />
                       </div>
-                    </div>
-                  </button>
+                      <div className="job-content">
+                        <div className="job-left">
+                          <span className="job-company">{item.company}</span>
+                          <span className="job-role">{item.role}</span>
+                        </div>
+                        <div className="job-right">
+                          <span className="job-dates">
+                            {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -219,16 +237,28 @@ function App() {
               <h2 className="section-title">Projects</h2>
               <div className="cards-list">
                 {projects.map((item, idx) => (
-                  <button
+                  <div
                     key={`project-${idx}`}
-                    className="item-card project-card"
-                    onClick={() => handleCardClick('projects', idx)}
+                    className="card-hover-wrapper"
+                    onMouseEnter={() => setHoveredCard(`project-${idx}`)}
+                    onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <div className="icon-wrapper">
-                      <ThumbsUp size={20} strokeWidth={2.5} />
-                    </div>
-                    <span className="item-text">{item.name}</span>
-                  </button>
+                    {hoveredCard === `project-${idx}` && (
+                      <div className="card-tooltip">
+                        <span className="card-tooltip-a">Ⓐ</span> More
+                        <div className="card-tooltip-arrow" />
+                      </div>
+                    )}
+                    <button
+                      className="item-card project-card"
+                      onClick={() => handleCardClick('projects', idx)}
+                    >
+                      <div className="icon-wrapper">
+                        <ThumbsUp size={20} strokeWidth={2.5} />
+                      </div>
+                      <span className="item-text">{item.name}</span>
+                    </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -238,26 +268,38 @@ function App() {
               <h2 className="section-title">Education</h2>
               <div className="cards-list">
                 {educationData.map((item, idx) => (
-                  <button
+                  <div
                     key={`education-${idx}`}
-                    className="item-card job-card"
-                    onClick={() => handleCardClick('education', idx)}
+                    className="card-hover-wrapper"
+                    onMouseEnter={() => setHoveredCard(`education-${idx}`)}
+                    onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <div className="icon-wrapper">
-                      <GraduationCap size={20} strokeWidth={2.5} />
-                    </div>
-                    <div className="job-content">
-                      <div className="job-left">
-                        <span className="job-company">{item.school}</span>
-                        <span className="job-role">{item.degree}</span>
+                    {hoveredCard === `education-${idx}` && (
+                      <div className="card-tooltip">
+                        <span className="card-tooltip-a">Ⓐ</span> More
+                        <div className="card-tooltip-arrow" />
                       </div>
-                      <div className="job-right">
-                        <span className="job-dates">
-                          {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
-                        </span>
+                    )}
+                    <button
+                      className="item-card job-card"
+                      onClick={() => handleCardClick('education', idx)}
+                    >
+                      <div className="icon-wrapper">
+                        <GraduationCap size={20} strokeWidth={2.5} />
                       </div>
-                    </div>
-                  </button>
+                      <div className="job-content">
+                        <div className="job-left">
+                          <span className="job-company">{item.school}</span>
+                          <span className="job-role">{item.degree}</span>
+                        </div>
+                        <div className="job-right">
+                          <span className="job-dates">
+                            {item.startDate} {item.endDate ? `- ${item.endDate}` : ''}
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
                 ))}
               </div>
             </div>
