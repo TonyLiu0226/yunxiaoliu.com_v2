@@ -514,7 +514,7 @@ body {
   box-shadow: var(--card-shadow);
   text-align: left;
   min-height: 400px;
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .detail-content {
@@ -646,7 +646,7 @@ body {
   gap: 20px;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 2.2s ease-in;
+  animation: fadeIn 1.6s ease-in;
 }
 
 .social-icon {
