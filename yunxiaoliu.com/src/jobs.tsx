@@ -6,6 +6,8 @@ export const jobs: Job[] = [
         role: "Guest Experience Guide",
         startDate: "May 2022",
         endDate: "Sep 2022",
+        startDayOfMonth: 16,
+        endDayOfMonth: 20,
         location: "Vancouver, BC",
         description: `Worked as a Guest Experience Guide at Flyover Canada, a 4D flight simulation experience in the Canada Place cruise ship terminal.
 
@@ -21,7 +23,9 @@ export const jobs: Job[] = [
         company: "The Big Leaf",
         role: "Frontend Developer",
         startDate: "Jun 2022",
+        startDayOfMonth: 30,
         endDate: "Sep 2022",
+        endDayOfMonth: 30,
         location: "Remote",
         description: `Worked on two projects during my part-time internship:
 
@@ -33,7 +37,9 @@ export const jobs: Job[] = [
         company: "Invoke Media",
         role: "Fullstack Developer",
         startDate: "Jan 2023",
+        startDayOfMonth: 4,
         endDate: "Apr 2023",
+        endDayOfMonth: 28,
         location: "Vancouver, BC",
         description: `Full-time internship where I focused on developing frontend and backend features for Incrowd, a multiplatform app for recording and streaming live events.
 
@@ -43,7 +49,9 @@ export const jobs: Job[] = [
         company: "FlyOver Canada",
         role: "Guest Experience Guide",
         startDate: "May 2023",
+        startDayOfMonth: 1,
         endDate: "Dec 2023",
+        endDayOfMonth: 31,
         location: "Vancouver, BC",
         description: `I came back LMAO...`
     },
@@ -51,7 +59,9 @@ export const jobs: Job[] = [
         company: "BoardSpace Inc.",
         role: "Software Developer (AI)",
         startDate: "Dec 2023",
+        startDayOfMonth: 16,
         endDate: "Feb 2024",
+        endDayOfMonth: 29,
         location: "Remote",
         description: `As part of the Riipen Level Up program, worked on a chatbot to improve customer support for a condo management platform.
 
@@ -67,7 +77,9 @@ export const jobs: Job[] = [
         company: "Invoke Media",
         role: "Fullstack Developer",
         startDate: "Jun 2024",
+        startDayOfMonth: 3,   
         endDate: "Aug 2024",
+        endDayOfMonth: 29,
         location: "Vancouver, BC",
         description: `I came back yet again LMAO....
 
@@ -83,7 +95,9 @@ export const jobs: Job[] = [
         company: "NETINT Technologies Inc.",
         role: "Software Engineer",
         startDate: "Sep 2024",
+        startDayOfMonth: 3,
         endDate: "Apr 2025",
+        endDayOfMonth: 30,
         location: "Burnaby, BC",
         description: `More AI and LLM stuffs, basically building and improving upon ChatGPT clones for internal use.
         - Developed internal tooling such as chatbots, coding agents, and RAG-based tools to improve productivity and workflows for 50+ employees.
@@ -95,7 +109,9 @@ export const jobs: Job[] = [
         company: "University of British Columbia",
         role: "Project Manager",
         startDate: "May 2025",
+        startDayOfMonth: 1,
         endDate: "May 2026",
+        endDayOfMonth: 8,
         location: "Vancouver, BC",
         description: `I was responsible for overseeing the redesign and redevelopment of UBC Botanical Garden's website, used by more than 100,000 users annually. I managed timelines, scope, requirements, and deliverables among various stakeholders and co-ordinated with a third party agency to execute site development.
 
@@ -107,8 +123,10 @@ export const jobs: Job[] = [
     {
         company: "Nutanix",
         role: "Software Engineer",
-        startDate: "July 2026",
+        startDate: "Jul 2026",
+        startDayOfMonth: 20,
         endDate: "Present",
+        endDayOfMonth: -1,
         location: "Vancouver, BC",
         description: `
         MTS-1 Working on the Flow Networking team... stay tuned for more updates!

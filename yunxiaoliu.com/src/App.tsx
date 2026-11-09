@@ -18,6 +18,8 @@ function App() {
   const [activeItem, setActiveItem] = useState<Job | Project | Education | null>(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [experienceLevel, setExperienceLevel] = useState<number>(0);
+  const [experienceRemainder, setExperienceRemainder] = useState<number>(0);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -41,6 +43,42 @@ function App() {
     setActiveType(null);
     setActiveItem(null);
   };
+
+  useEffect(() => {
+    const monthArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const MS_PER_DAY = 1000 * 60 * 60 * 24;
+    const AVG_DAYS_PER_MONTH = 30.44;
+
+    let totalDays = 0;
+
+    for (const job of jobs) {
+      const startYear  = Number(job.startDate.split(' ')[1]);
+      const startMonth = monthArray.indexOf(job.startDate.split(' ')[0]);
+      const startDay   = job.startDayOfMonth;
+
+      const startMs = Date.UTC(startYear, startMonth, startDay);
+
+      let endMs: number;
+      if (job.endDate === 'Present') {
+        const now = new Date();
+        endMs = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+      } else {
+        const endYear  = Number(job.endDate.split(' ')[1]);
+        const endMonth = monthArray.indexOf(job.endDate.split(' ')[0]);
+        const endDay   = job.endDayOfMonth;
+        endMs = Date.UTC(endYear, endMonth, endDay);
+      }
+
+      const diffDays = (endMs - startMs) / MS_PER_DAY;
+      totalDays += diffDays;
+    }
+    const months = Math.floor(totalDays/ AVG_DAYS_PER_MONTH);
+    const remainderFraction  = (totalDays % AVG_DAYS_PER_MONTH) / AVG_DAYS_PER_MONTH;
+
+    console.log(totalDays, remainderFraction);
+    setExperienceLevel(months);
+    setExperienceRemainder(remainderFraction);
+  }, []);
 
   const handleCardClick = (section: string, index: number) => {
     if (section === 'jobs') {
@@ -175,11 +213,11 @@ function App() {
             <div className="profile-stats-card">
               <div className="stats-info">
                 <div className="stats-header">
-                  <span className="stats-title">YOE</span>
-                  <span className="stats-level">Lv. 3</span>
+                  <span className="stats-title">Experience</span>
+                  <span className="stats-level">Lv. {experienceLevel}</span>
                 </div>
                 <div className="progress-bar-bg">
-                  <div className="progress-bar-fill" style={{ width: '70%' }}></div>
+                  <div className="progress-bar-fill" style={{ width: `${(experienceRemainder * 100).toFixed(1)}%` }}></div>
                 </div>
               </div>
               <div className="avatar-container">

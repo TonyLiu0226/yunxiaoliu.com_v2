@@ -2,7 +2,9 @@ export type Job = {
     company: string;
     role: string;
     startDate: string;
+    startDayOfMonth: number;
     endDate: string;
+    endDayOfMonth: number;
     location: string;
     description: string;
 }
